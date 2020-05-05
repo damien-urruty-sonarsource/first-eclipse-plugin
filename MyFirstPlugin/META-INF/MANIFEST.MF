@@ -4,11 +4,9 @@ Bundle-Name: MyFirstPlugin
 Bundle-SymbolicName: MyFirstPlugin;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: com.sonarsource.myfirstplugin.Activator
-Require-Bundle: org.eclipse.ui.workbench,
- org.junit,
- org.eclipse.jface,
+Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- org.eclipse.ui
+ org.eclipse.jface
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Automatic-Module-Name: MyFirstPlugin
 Import-Package: javax.annotation;version="0.0.0"
