@@ -6,12 +6,12 @@
   <parent>
     <groupId>com.sonarsource</groupId>
     <artifactId>MyFirstPlugin-parent</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.0-SNAPSHOT</version>
   </parent>
 
   <groupId>com.sonarsource</groupId>
   <artifactId>MyFirstPlugin</artifactId>
-  <version>0.1.0</version>
+  <version>0.1.0-SNAPSHOT</version>
   <packaging>eclipse-plugin</packaging>
 
 </project>
