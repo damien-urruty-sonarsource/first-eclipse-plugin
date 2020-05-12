@@ -13,6 +13,7 @@ steps:
   displayName: 'Run Maven install'
   env:
     DISPLAY: ":10"
+    SONAR_TOKEN: $(SONAR_TOKEN)
   inputs:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
