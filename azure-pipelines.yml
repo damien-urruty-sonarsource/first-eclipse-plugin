@@ -21,4 +21,5 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'install'
+    options: '-Pcoverage'
+    goals: 'install sonar:sonar -Dsonar.coverage.jacoco.xmlReportPaths=$(Build.Repository.LocalPath)/MyFirstPluginTest/target/site/jacoco-aggregate/jacoco.xml'
