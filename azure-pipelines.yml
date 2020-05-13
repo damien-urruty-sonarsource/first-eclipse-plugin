@@ -23,4 +23,4 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     options: '-Pcoverage'
-    goals: 'install sonar:sonar -Dsonar.coverage.jacoco.xmlReportPaths=$(Build.Repository.LocalPath)/MyFirstPluginTest/target/site/jacoco-aggregate/jacoco.xml'
+    goals: 'install sonar:sonar -Dsonar.projectKey=damien-urruty-sonarsource_first-eclipse-plugin -Dsonar.coverage.jacoco.xmlReportPaths=$(Build.Repository.LocalPath)/MyFirstPluginTest/target/site/jacoco-aggregate/jacoco.xml'
