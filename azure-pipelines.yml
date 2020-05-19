@@ -1,22 +1,36 @@
-# Maven
-# Build your Java project and run tests with Apache Maven.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/java
-
 trigger:
 - '*'
+
 
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- bash: |
+    sudo ./start-xvfb.sh
+  displayName: Setup Xvfb and Metacity
+  workingDirectory: scripts
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'SonarCloud'
+    organization: 'damien-urruty-sonarsource'
+    scannerMode: 'Other'
+    extraProperties: 'sonar.projectKey=damien-urruty-sonarsource_first-eclipse-plugin'
 - task: Maven@3
+  displayName: 'Run Maven install'
+  env:
+    DISPLAY: ":10"
   inputs:
     mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.11'
-    jdkArchitectureOption: 'x64'
+    goals: 'install -Dsonar.coverage.jacoco.xmlReportPaths=$(Build.Repository.LocalPath)/MyFirstPluginTest/target/site/jacoco-aggregate/jacoco.xml'
+    options: '-Pcoverage'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'install'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.11'
+    mavenVersionOption: 'Default'
+    mavenOptions: '-Xmx3072m'
+    mavenAuthenticateFeed: false
+    effectivePomSkip: false
+    sonarQubeRunAnalysis: true
+    sqMavenPluginVersionChoice: 'latest'

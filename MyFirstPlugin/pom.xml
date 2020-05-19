@@ -9,9 +9,11 @@
     <version>0.1.0-SNAPSHOT</version>
   </parent>
 
-  <groupId>com.sonarsource</groupId>
   <artifactId>MyFirstPlugin</artifactId>
-  <version>0.1.0-SNAPSHOT</version>
   <packaging>eclipse-plugin</packaging>
+
+  <properties>
+    <sonar.sources>src</sonar.sources>
+  </properties>
 
 </project>
